@@ -1,0 +1,125 @@
+<!doctype html>
+
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <title></title>
+    <meta name='author' content='David Kerkeslager'>
+
+    <style>
+      html {
+        height: 100%;
+        width: 100%;
+      }
+
+      body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      a:active,
+      a:focus,
+      a:hover,
+      a:link,
+      a:visited {
+        color: black;
+        outline: none;
+      }
+
+      svg {
+        transition: all 0.25s;
+      }
+
+      @media (orientation: landscape) {
+        body {
+          flex-direction: row;
+        }
+
+        a:not(:first-child) {
+          margin-left: 6vh;
+        }
+
+        svg {
+          height: 15vh;
+          width: 15vh;
+        }
+
+        a:active svg,
+        a:focus svg,
+        a:hover svg {
+          height: 24vh;
+          width: 24vh;
+        }
+      }
+
+      @media (orientation: portrait) {
+        body {
+          flex-direction: column;
+        }
+
+        a:not(:first-child) {
+          margin-top: 6vw;
+        }
+
+        svg {
+          height: 15vw;
+          width: 15vw;
+        }
+
+        a:active svg,
+        a:focus svg,
+        a:hover svg {
+          height: 24vw;
+          width: 24vw;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <a href='https://files.kerkeslager.com'>
+      <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
+    </a>
+
+    <a href='https://github.com/kerkeslager'>
+      <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-code"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+    </a>
+
+    <a href='{% url "tickle:area-list" %}'>
+      <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mountain"><polyline points="12 11 8 2 1 21 23 21 17 6 12 11"></polyline></svg>
+    </a>
+
+    <a id='email'>
+      <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </a>
+
+    <script type='module'>
+      ((fn) => {
+        if (document.readyState != 'loading') {
+          fn();
+        } else {
+          document.addEventListener('DOMContentLoaded', fn);
+        }
+      })(() => {
+        let mailToLink = document.getElementById('email');
+
+        let href = '';
+        href += 'mailto:';
+        href += 'david';
+        href += '@';
+        href += 'kerkeslager';
+        href += '.';
+        href += 'com';
+
+        mailToLink.href = href;
+      });
+    </script>
+  </body>
+</html>
