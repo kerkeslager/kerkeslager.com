@@ -219,3 +219,11 @@ def import_todos(request):
         return HttpResponse('success')
     else:
         raise Exception()
+
+from django.contrib.auth.models import User
+from django.views.generic import DetailView
+
+class ClimbingProfile(DetailView):
+    model = User
+    template_name = 'tickle/user_detail.html'
+climbing_profile = ClimbingProfile.as_view()
