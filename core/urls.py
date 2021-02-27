@@ -21,6 +21,7 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('climbing/import-ticks', views.import_ticks),
+    path('climbing/import-todos', views.import_todos),
     path('climbing/', include('tickle.urls')),
     path('', views.index),
 ]
