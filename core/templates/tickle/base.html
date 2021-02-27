@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %}
+
+{% block extra_style %}
+  #page-nav {
+    display: flex;
+    flex-direction: row;
+  }
+
+  #page-nav nav .tickle-breadcrumb-item:not(:first-child)::before {
+    content: '>';
+    margin: 0 0.5rem;
+  }
+{% endblock %}
+
+{% block title %}{% block tickle_title_name %}{% endblock %}{% endblock %}
+
+{% block page_nav %}{% block tickle_nav %}{% endblock %}{% endblock %}
+
+{% block page_title %}{% block tickle_header_name %}{% endblock %}{% endblock %}
+
+{% block page_subtitle %}{% block tickle_extra_header %}{% endblock %}{% endblock %}
+
+{% block main %}{% block tickle_main %}{% endblock %}{% endblock %}
