@@ -23,6 +23,8 @@ urlpatterns = [
     path('climbing/import-ticks', views.import_ticks),
     path('climbing/import-todos', views.import_todos),
     path('climbing/user/<int:pk>', views.climbing_profile),
+    path('climbing/user/<int:pk>/attempts', views.climbing_attempts),
+    path('climbing/user/<int:pk>/todos', views.climbing_todos),
     path('climbing/', include('tickle.urls')),
     path('', views.index),
 ]

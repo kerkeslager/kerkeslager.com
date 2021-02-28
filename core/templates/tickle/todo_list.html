@@ -1,0 +1,20 @@
+{% extends 'tickle/base.html' %}
+
+{% block tickle_title_name %}{{ user.username }} Todos{% endblock %}
+
+{% block tickle_header_name %}{{ user.username }} Todos{% endblock %}
+
+{% block tickle_main %}
+  <ul>
+    {% for todo in todo_list %}
+      <li>
+        {% if todo.boulder %}
+          {% include 'tickle/boulder_breadcrumb_trail.html' with boulder=todo.boulder %}
+        {% else %}
+          {% include 'tickle/route_breadcrumb_trail.html' with route=todo.route %}
+        {% endif %}
+        {{ todo.notes }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

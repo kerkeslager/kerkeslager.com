@@ -6,12 +6,13 @@
 
 {% block tickle_main %}
   <h3>Attempts</h3>
-  {% for attempts in user.attempts.all %}
+  {% for attempt in attempts %}
     attempt
   {% endfor %}
 
   <h3>Todos</h3>
-  {% for todo in user.todos.all %}
+  <h4>Boulders</h4>
+  {% for todo in todos %}
     todo
   {% endfor %}
 {% endblock %}

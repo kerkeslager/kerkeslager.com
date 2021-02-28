@@ -1,0 +1,21 @@
+{% extends 'tickle/base.html' %}
+
+{% block tickle_title_name %}{{ user.username }} Attempts{% endblock %}
+
+{% block tickle_header_name %}{{ user.username }} Attempts{% endblock %}
+
+{% block tickle_main %}
+  <ul>
+    {% for attempt in attempt_list %}
+      <li>
+        <date>{{ attempt.date }}</date>
+        {% if attempt.boulder %}
+          <a href='{% url "tickle:boulder-detail" pk=attempt.boulder.pk %}'>{{ attempt.boulder.name }}</a>
+        {% else %}
+          <a href='{% url "tickle:route-detail" pk=attempt.route.pk %}'>{{ attempt.route.name }}</a>
+        {% endif %}
+        {{ attempt.notes }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

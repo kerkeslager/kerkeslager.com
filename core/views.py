@@ -221,9 +221,33 @@ def import_todos(request):
         raise Exception()
 
 from django.contrib.auth.models import User
-from django.views.generic import DetailView
+from django.views.generic import DetailView, ListView
 
 class ClimbingProfile(DetailView):
     model = User
     template_name = 'tickle/user_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        user = self.object
+
+        context['attempts'] = user.attempts.all()[:10]
+        context['todos'] = user.todos.all()[:10]
+
+        return context
 climbing_profile = ClimbingProfile.as_view()
+
+class ClimbingAttempts(ListView):
+    model = Attempt
+    def get_queryset(self):
+        pk = self.kwargs['pk']
+        return User.objects.get(pk=pk).attempts.order_by('-date')
+climbing_attempts = ClimbingAttempts.as_view()
+
+class ClimbingTodos(ListView):
+    model = Todo
+    def get_queryset(self):
+        pk = self.kwargs['pk']
+        return User.objects.get(pk=pk).todos.all()
+climbing_todos = ClimbingTodos.as_view()
